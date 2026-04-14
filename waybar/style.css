@@ -1,0 +1,32 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+}
+
+/* On rend la barre de base totalement INVISIBLE */
+window#waybar {
+    background: transparent;
+}
+
+/* Le style commun à toutes nos "bulles" */
+#workspaces, #clock, #battery, #pulseaudio, #network, #tray, #custom-notification {
+    background: rgba(30, 30, 46, 0.8); /* Fond sombre transparent */
+    color: #cdd6f4;
+    padding: 0 15px;
+    margin: 5px 5px;
+    border-radius: 15px; /* Très arrondi */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- COULEURS SPÉCIFIQUES --- */
+
+#battery.charging {
+    background-color: #a6e3a1; /* Vert quand ça charge */
+    color: #11111b;
+}
+
+#battery.critical {
+    background-color: #f38ba8; /* Rouge si batterie faible */
+}
