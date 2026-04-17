@@ -43,7 +43,6 @@
           enabled = true;
           size = 8;
           passes = 4;
-          new_optimizations = true;
           xray = false;
           noise = 0.012;
           contrast = 1.1;
