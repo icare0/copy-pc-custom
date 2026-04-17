@@ -78,8 +78,9 @@
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   programs.hyprland = {
     enable = true;
-    # Si tu utilises le flake Hyprland, décommente la ligne suivante :
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # FIX: portalPackage doit aussi venir du flake pour éviter le mismatch de version
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
   };
 
@@ -99,7 +100,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
+      # FIX: xdg-desktop-portal-hyprland retiré ici — déjà géré via portalPackage ci-dessus
       pkgs.xdg-desktop-portal-gtk
     ];
     config.common.default = "*";
@@ -147,7 +148,6 @@
     packages = with pkgs; [
       inter                        # Police principale (macOS-like)
       nerd-fonts.jetbrains-mono    # Terminal + icônes
-     # nerd-fonts.sf-mono           # SF Mono si dispo
       noto-fonts
       noto-fonts-color-emoji
     ];
